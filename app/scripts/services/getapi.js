@@ -10,20 +10,25 @@
 
 angular.module('alarm')
   .factory('Dataservice', function ($http) {
-    var obj = { 
-      getData: function() {
-        
-        function success (response) {
-          return response.data;
-        }
+  // var obj = {
+  //   getData: function(data) {
+  //     function success (response) {
+  //       return response;
+  //     }
+  //     function failure (response) {
+  //     console.log("pp")
+  //       return response;
+  //     }
+  //     return $http.post("http://192.168.2.73:3000/build_status").then(success, failure);
+  //   }
+  // };
+  // return obj;
 
-        function failure (response) {
-          return response.data;
-        }
-        
-        return $http.get("http://www.w3schools.com/angular/customers.php").then(success, failure);
-      }   
-    };
-
-    return obj;
+  return{
+    notification: function(){
+        return $http.post("http://192.168.2.73:3000/build_status").success(function(response){
+           return response;
+        });          
+    }
+}
 });
