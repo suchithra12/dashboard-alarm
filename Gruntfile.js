@@ -31,6 +31,26 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    ngconstant: {
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config'
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js',
+        },
+        constants: {
+          ENV: {
+            name: 'development',
+            //api_path: 'http://localhost:3000/',
+            api_path: 'http://192.168.2.19:5000/'
+          }
+        }
+      },
+    },
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {

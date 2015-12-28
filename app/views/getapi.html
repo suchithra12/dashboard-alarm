@@ -1,22 +1,25 @@
-<div class="container" ng-controller = "GetapiCtrl">
-  <div class="col-sm-3 col-lg-3" ng-repeat="obj in ss">
-    <div class="dash-unit">
+<div class="container">
+  <div class="col-sm-3 col-lg-3" ng-repeat="obj in build_status">
+  {{build_status.length}}
+    <div class="dash-unit" ng-class="{'red': obj.Status == 'FAILURE'}">
       <h1>{{obj.Job_name}}</h1>
       <hr>
-      <div class="thumbnail">
-        <img src="images/face80x80.jpg" alt="Marcel Newman" class="img-circle">
-      </div><!-- /thumbnail -->
-      <h3>{{obj.Status}}</h3>
-      <div ng-if="obj.Status == 'FAILURE'">
-       <!--  {{obj.Status}}
-        <div audio src = "/images/Over_the_horizon.mp3" />
- -->    <audio class="audioDemo" controls preload="none" autoplay="true"> 
-          <source src="/images/Over_the_horizon.mp3" type="audio/mpeg">
-        </audio>  
-        <!-- <div audio options="options" /> -->
+      <div ng-if="obj.Status == 'SUCCESS'">
+        <div class="thumbnail">
+          <i class="fa fa-thumbs-up fa-5x"></i>
+        </div>
       </div>
+      <!-- <div ng-if="obj.Status == 'FAILURE'" ng-init="Ctrl.failure(obj)"> -->
+      <div ng-if="obj.Status == 'FAILURE'">
+        <div class="thumbnail">
+          <i class="fa fa-thumbs-down fa-5x"></i>
+           <audio class="audioDemo" controls preload="none" autoplay="true" style="display:none"> 
+          <source src="/images/Over_the_horizon.mp3" type="audio/mpeg">
+        </audio> 
+        </div>
+      </div> 
+      <h3>{{obj.Status}}</h3>
       <br>
     </div>
   </div>
-
 </div>
