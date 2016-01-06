@@ -13,7 +13,7 @@ angular.module('alarm')
 
   return{
     notification: function(){
-        return $http.post("http://192.168.2.19:5000/build_status").success(function(response){
+        return $http.post("http://54.213.20.151:3000/build_status").success(function(response){
            return response;
         });          
     }

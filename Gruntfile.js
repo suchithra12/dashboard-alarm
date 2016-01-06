@@ -46,7 +46,7 @@ module.exports = function (grunt) {
           ENV: {
             name: 'development',
             //api_path: 'http://localhost:3000/',
-            api_path: 'http://192.168.2.19:5000/'
+            api_path: 'http://54.213.20.151:3000/'
           }
         }
       },
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '192.168.2.56',
         livereload: 35729
       },
       livereload: {
